@@ -95,7 +95,6 @@ public class HandlerMappingImpl implements HandlerMapping{
                     for(String mapping : mappings) {
                         String pattern = mapping.replace("/*", "/\\w*")
                                 .replaceAll("/\\{\\w+\\}", "/(\\\\w*)");
-
                         Pattern p = Pattern.compile("^" + request.getContextPath() + addUrl + pattern + "$");
                         Matcher matcher = p.matcher(uri);
                         return matcher.find();
