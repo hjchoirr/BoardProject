@@ -1,6 +1,7 @@
 package org.choongang.my;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Controller;
 import org.choongang.global.config.annotations.RequestMapping;
@@ -8,19 +9,16 @@ import org.choongang.global.config.annotations.RequestMapping;
 @Controller
 @RequiredArgsConstructor
 public class MyController {
-
-    private final HttpServletRequest request;
+    @NonNull
+    private HttpServletRequest request;
     private final MyLoginService service;
 
     @RequestMapping({"/my/login"})
-    public String my() {
+    public String my(LoginForm form) {
         if(request.getMethod().equalsIgnoreCase("POST")) {
 
-            LoginForm loginForm = LoginForm.builder()
-                .email(request.getParameter("email"))
-                .password(request.getParameter("password"))
-                .build();
-            service.process(loginForm);
+            System.out.println(form.getEmail());
+            service.process(form);
 
             return "my/index";
         } else {
