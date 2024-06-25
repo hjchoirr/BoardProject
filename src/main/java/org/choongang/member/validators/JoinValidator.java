@@ -1,7 +1,6 @@
 package org.choongang.member.validators;
 
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.config.annotations.Component;
 import org.choongang.global.exceptions.AlertException;
@@ -26,7 +25,6 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator,
         boolean termsAgree = form.isTermsAgree();
         /* 필수항목 검사 */
         int status = HttpServletResponse.SC_BAD_REQUEST;
-
 
         checkRequired(email, new AlertException("이메일을 입력하세요", status));
         checkRequired(password, new AlertException("비밀번호를 입력하세요", status));

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.board.mapper.BoardMapper">
+    <resultMap id="boardMap" type="org.choongang.board.entities.Board">
+        <result column="ART_NO" property="artNo" />
+        <result column="ART_TITLE" property="artTitle" />
+        <result column="USER_NO" property="userNo" />
+        <result column="ART_BODY" property="artBody" />
+        <result column="READ_CNT" property="readCnt" />
+        <result column="REG_DT" property="regDt" />
+        <result column="MOD_DT" property="modDt" />
+    </resultMap>
+    <select id="exists" resultType="int">
+        SELECT COUNT(*) FROM BOARD WHERE ART_NO=#{artNo}
+    </select>
+    <select id="get" resultMap="boardMap">
+        SELECT * FROM BOARD WHERE ART_NO=#{artNo}
+    </select>
+    <insert id="register">
+        INSERT INTO BOARD ( ART_NO, ART_TITLE, USER_NO, ART_BODY, READ_CNT)
+        VALUES (SEQ_BOARD.NEXTVAL, #{artNo}, #{artTitle}, #{userNo}, #{artBody})
+    </insert>
+</mapper>
