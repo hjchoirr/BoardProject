@@ -42,10 +42,18 @@ input[type=text], input[type=number], input[type=email], input[type=password] {
     border-radius: 3px;
 }
 
+input[type=file] {
+    border: 1px solid #ccc;
+    padding: 10px 10px;
+    width: 100%;
+    height: 45px;
+    border-radius: 3px;
+}
 textarea {
     border: 1px solid #ccc;
     padding: 10px;
     min-height: 100px;
+    width: 100%;
     resize: none;
     border-radius: 3px;
 }

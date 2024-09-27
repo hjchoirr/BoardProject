@@ -29,8 +29,6 @@ public class DispatcherServlet extends HttpServlet  {
 
         RouterService service = bc.getBean(RouterService.class);
         service.route(request, response);
-        System.out.println("DispatcherServlet-service() bc.getBeans() : "
-                + request.getRequestURI() + " => " + bc.getBeans());
-        System.out.println();
+
     }
 }

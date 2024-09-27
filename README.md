@@ -1815,13 +1815,13 @@ public class JoinService {
 ```java
 @MapperScan({
         "org.choongang.member.mapper",
-        "org.choongang.board.mapper"
+        "org.choongang.board.mappers"
 })
 public class MapperProvider {
   ...
 }
 ```
-> 위 설정은 org.choongang.member.mapper, org.choongang.board.mapper 두개의 패키지에 정의된 매퍼 인터페이스들이 검색 범위가 된다.
+> 위 설정은 org.choongang.member.mapper, org.choongang.board.mappers 두개의 패키지에 정의된 매퍼 인터페이스들이 검색 범위가 된다.
 
 - MapperProvider : 매퍼 인터페이스 정의를 찾아서 생성 및 반환
 

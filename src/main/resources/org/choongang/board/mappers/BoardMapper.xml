@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.choongang.board.mapper.BoardMapper">
+<mapper namespace="org.choongang.board.mappers.BoardMapper">
     <resultMap id="boardMap" type="org.choongang.board.entities.Board">
         <result column="ART_NO" property="artNo" />
         <result column="ART_TITLE" property="artTitle" />
@@ -19,7 +19,7 @@
         SELECT * FROM BOARD WHERE ART_NO=#{artNo}
     </select>
     <insert id="register">
-        INSERT INTO BOARD ( ART_NO, ART_TITLE, USER_NO, ART_BODY, READ_CNT)
-        VALUES (SEQ_BOARD.NEXTVAL, #{artNo}, #{artTitle}, #{userNo}, #{artBody})
+        INSERT INTO BOARD ( ART_NO, ART_TITLE, USER_NO, ART_BODY, FILE_NAME)
+        VALUES (SEQ_BOARD.NEXTVAL, #{artTitle}, #{userNo}, #{artBody}, #{fileName})
     </insert>
 </mapper>
